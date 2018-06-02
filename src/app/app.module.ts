@@ -8,6 +8,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { environment } from '../environments/environment';
+import { AlertHelper } from '../helpers/alert.helper';
 import { LoaderHelper } from '../helpers/loader.helper';
 import { ToastHelper } from '../helpers/toast.helper';
 import { HomePage } from '../pages/home/home';
@@ -40,6 +41,7 @@ import { MyApp } from './app.component';
         AngularFireAuth,
         LoaderHelper,
         ToastHelper,
+        AlertHelper,
     ]
 })
 export class AppModule { }

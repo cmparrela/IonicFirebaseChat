@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, LoadingController, NavController } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { LoaderHelper } from '../../helpers/loader.helper';
-import { BasePage } from '../../core/base.page';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IonicPage, LoadingController, NavController } from 'ionic-angular';
 
+import { BasePage } from '../../core/base.page';
+import { AlertHelper } from '../../helpers/alert.helper';
+import { LoaderHelper } from '../../helpers/loader.helper';
+import { AuthProvider } from '../../providers/auth/auth.provider';
 
 @IonicPage()
 @Component({
@@ -16,10 +18,11 @@ export class SignInPage extends BasePage {
 
     constructor(
         public loadingCtrl: LoadingController,
-        public alertCtrl: AlertController,
+        public alertHelper: AlertHelper,
         public navCtrl: NavController,
         public formBuilder: FormBuilder,
-        public loaderHelper: LoaderHelper
+        public loaderHelper: LoaderHelper,
+        public authProvider: AuthProvider
     ) {
         super();
         this.signInForm = this.formBuilder.group({
@@ -28,25 +31,19 @@ export class SignInPage extends BasePage {
         })
     }
 
-    login() {
+    async login() {
         this.loaderHelper.show();
         try {
             this.submitAttempt = true;
 
             if (this.signInForm.valid) {
-                console.log('ok');
+              await this.authProvider.signIn(this.signInForm.value.email, this.signInForm.value.password)
+                
             }
         } catch (error) {
-            let alert = this.alertCtrl.create({
-                subTitle: error,
-                buttons: ['OK']
-            });
-            alert.present();
+            this.alertHelper.show(error);
         }
         this.loaderHelper.close();
-
-        console.log('fim');
-
     }
 
     goToSignUp() {

@@ -16,4 +16,8 @@ export class AuthProvider extends BaseProvider {
         return this.fireAuth.auth.createUserWithEmailAndPassword(email, password).catch(this.handlePromiseError);
     }
 
+    signIn(email: string, password: string) {
+        return this.fireAuth.auth.signInWithEmailAndPassword(email, password).catch(this.handlePromiseError);
+    }
+
 }
