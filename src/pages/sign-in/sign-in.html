@@ -1,0 +1,33 @@
+<ion-content padding class="transparent-header" style="background-image: url(assets/imgs/background-login.jpg)">
+    <div padding>
+        <ion-row>
+            <ion-col>
+                <img class="logo" src="assets/imgs/company-logo.png" />
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item>
+                        <ion-input type="email" placeholder="Email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="password" placeholder="Password"></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <button ion-button color="secondary" class="login-button" (click)="login()">Login</button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <div (click)="goToSignUp()">
+                    <span>Or create a new account.</span>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

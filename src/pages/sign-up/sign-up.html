@@ -1,0 +1,53 @@
+<ion-content padding class="transparent-header" style="background-image: url(assets/imgs/background-login.jpg)">
+    <ion-header>
+        <ion-navbar>
+        </ion-navbar>
+    </ion-header>
+
+    <div padding class="padding-top">
+        <form [formGroup]="signUpForm">
+            <ion-row>
+                <ion-col>
+                    <ion-list>
+                        <ion-item>
+                            <ion-label floating>Name</ion-label>
+                            <ion-input type="text" formControlName="name"></ion-input>
+                        </ion-item>
+                        <ion-item class="error-container" *ngIf="signUpForm.controls.name.invalid && (signUpForm.controls.name.dirty || submitAttempt)">
+                            <div *ngFor="let validation of validationMessages">
+                                <span class="error" *ngIf="signUpForm.get('name').hasError(validation.type) ">{{validation.message}}</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label floating>Email</ion-label>
+                            <ion-input type="email" formControlName="email"></ion-input>
+                        </ion-item>
+                        <ion-item class="error-container" *ngIf="signUpForm.controls.email.invalid && (signUpForm.controls.email.dirty || submitAttempt)">
+                            <div *ngFor="let validation of validationMessages">
+                                <span class="error" *ngIf="signUpForm.get('email').hasError(validation.type) ">{{validation.message}}</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label floating>Password</ion-label>
+                            <ion-input type="password" formControlName="password"></ion-input>
+                        </ion-item>
+                        <ion-item class="error-container" *ngIf="signUpForm.controls.password.invalid && (signUpForm.controls.password.dirty || submitAttempt)">
+                            <div *ngFor="let validation of validationMessages">
+                                <span class="error" *ngIf="signUpForm.get('password').hasError(validation.type) ">{{validation.message}}</span>
+                            </div>
+                        </ion-item>
+
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <button ion-button color="secondary" class="login-button" (click)="createAccount()">Create Account</button>
+                </ion-col>
+            </ion-row>
+        </form>
+    </div>
+
+</ion-content>

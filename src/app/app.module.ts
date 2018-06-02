@@ -1,22 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { MyApp } from './app.component';
+import { environment } from '../environments/environment';
 import { HomePage } from '../pages/home/home';
-
-import { FirebaseAppConfig, AngularFireModule } from "angularfire2";
-
-const firebaseAppConfig: FirebaseAppConfig = {
-    apiKey: "AIzaSyCHQaH3ryXkPIMg-z0chT77hFKoO16j8GA",
-    authDomain: "udemy-curso-chat.firebaseapp.com",
-    databaseURL: "https://udemy-curso-chat.firebaseio.com",
-    projectId: "udemy-curso-chat",
-    storageBucket: "udemy-curso-chat.appspot.com",
-    messagingSenderId: "369076819731"
-};
+import { AuthProvider } from '../providers/auth/auth.provider';
+import { UserProvider } from '../providers/user/user.provider';
+import { MyApp } from './app.component';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
     declarations: [
@@ -26,7 +21,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        AngularFireModule.initializeApp(firebaseAppConfig)
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -36,7 +32,10 @@ const firebaseAppConfig: FirebaseAppConfig = {
     providers: [
         StatusBar,
         SplashScreen,
-        { provide: ErrorHandler, useClass: IonicErrorHandler }
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+        UserProvider,
+        AuthProvider,
+        AngularFireAuth
     ]
 })
 export class AppModule { }

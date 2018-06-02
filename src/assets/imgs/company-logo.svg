@@ -1,0 +1,17 @@
+<svg id="teste" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="595 283 160 91"><g data-item-type="text" data-item="Business" id="logo__item--business" class="logo__item">
+                <g class="logo__item__inner" transform="translate(597.3046875 349.91285309529223) scale(1 1) rotate(0 0 0)">
+                    <text data-part-id="logo__item--business" dy="0" dominant-baseline="auto" alignment-baseline="auto" font-family="Montserrat" font-size="32px" fill="#00A69C" letter-spacing="0" font-weight="bold" font-style="normal" data-font-family="Montserrat" data-font-weight="bold" data-font-style="normal" data-ttf-url="/builder_assets/fontsttf/font-montserrat-bold-normal.ttf" data-font-filename="montserrat-bold-normal">GGChat</text>
+                </g>
+            </g><g data-item-type="image" data-item="Image" data-logo-item="" id="logo__item--logo_0" class="logo__item">
+    <g class="logo__item__inner" transform="translate(680.5185558070008 247) scale(1.5182571487812158 1.5182571487812158) rotate(-225.1285111631261 40.68188581521002 42.888186274919036)">
+        
+<g>
+	<polygon fill="#00A69C" points="63.547,74.838 38.709,50 63.547,25.162 63.547,10.481 24.029,50 63.547,89.519" data-part-id="logo__item--logo_0__0"/>
+	<polygon fill="#008C83" points="52.526,58.741 52.526,41.259 35.047,58.741" data-part-id="logo__item--logo_0__1"/>
+	<polygon fill="#26A9E0" points="52.344,41.444 35.229,41.444 52.344,58.556" data-part-id="logo__item--logo_0__2"/>
+	<polygon fill="#26A9E0" points="35.041,58.744 52.532,58.744 35.041,41.253" data-part-id="logo__item--logo_0__3"/>
+	<polygon fill="#008C83" points="35.224,41.436 35.224,58.564 52.35,41.436" data-part-id="logo__item--logo_0__4"/>
+</g>
+
+    </g>
+</g></svg>

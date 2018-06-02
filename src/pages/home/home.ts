@@ -11,4 +11,7 @@ export class HomePage {
 
     }
 
+    onSignIn() {
+        this.navCtrl.push('SignInPage');
+    }
 }

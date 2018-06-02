@@ -1,0 +1,48 @@
+page-sign-up {
+    // Fullscreen centered image background
+    ion-content {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-color: transparent;
+    }
+    .scroll-content {
+        background-image: radial-gradient(center center, ellipse cover, #ffeda3, #ffc800);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    ion-row {
+        align-items: center;
+        text-align: center;
+    }
+    @media only screen and (min-width: 768px) {
+        ion-col.col {
+            margin: 0 auto;
+            max-width: 40%;
+        }
+    }
+    ion-label {
+        color: white !important;
+    }
+    ion-item {
+        padding-left: 10px !important;
+        margin-bottom: 10px;
+        background-color: transparent !important;
+        font-size: 0.9em;
+        color: white !important;
+    }
+    ion-list {
+        margin: 0;
+    }
+    .login-button {
+        width: 100%;
+        font-size: 0.9em;
+    }
+    span {
+        color: white;
+    }
+    .padding-top {
+        margin-top: 5vh
+    }
+}
