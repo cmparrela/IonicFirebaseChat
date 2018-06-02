@@ -7,14 +7,27 @@
         </ion-row>
         <ion-row>
             <ion-col>
-                <ion-list>
-                    <ion-item>
-                        <ion-input type="email" placeholder="Email"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input type="password" placeholder="Password"></ion-input>
-                    </ion-item>
-                </ion-list>
+                <form [formGroup]="signInForm">
+                    <ion-list>
+                        <ion-item>
+                            <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+                        </ion-item>
+                        <ion-item class="error-container" *ngIf="signInForm.controls.email.invalid && (signInForm.controls.email.dirty || submitAttempt)">
+                            <div *ngFor="let validation of validationMessages">
+                                <span class="error" *ngIf="signInForm.get('email').hasError(validation.type) ">{{validation.message}}</span>
+                            </div>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+                        </ion-item>
+                        <ion-item class="error-container" *ngIf="signInForm.controls.password.invalid && (signInForm.controls.password.dirty || submitAttempt)">
+                            <div *ngFor="let validation of validationMessages">
+                                <span class="error" *ngIf="signInForm.get('password').hasError(validation.type) ">{{validation.message}}</span>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                </form>
             </ion-col>
         </ion-row>
         <ion-row>

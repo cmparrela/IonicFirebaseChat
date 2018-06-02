@@ -39,7 +39,7 @@ import { MyApp } from './app.component';
         AuthProvider,
         AngularFireAuth,
         LoaderHelper,
-        ToastHelper
+        ToastHelper,
     ]
 })
 export class AppModule { }

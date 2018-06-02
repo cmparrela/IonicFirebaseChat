@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { LoaderHelper } from '../../helpers/loader.helper';
 import { ToastHelper } from '../../helpers/toast.helper';
 import { AuthProvider } from '../../providers/auth/auth.provider';
 import { UserProvider } from '../../providers/user/user.provider';
-import { validationMessages } from '../../validation/validation';
+import { BasePage } from '../../core/base.page';
 
 @IonicPage({
     defaultHistory: ['SignInPage']
@@ -15,10 +15,9 @@ import { validationMessages } from '../../validation/validation';
     selector: 'page-sign-up',
     templateUrl: 'sign-up.html',
 })
-export class SignUpPage {
+export class SignUpPage extends BasePage {
     submitAttempt: boolean = false;
     signUpForm: FormGroup;
-    validationMessages = validationMessages;
 
     constructor(
         public formBuilder: FormBuilder,
@@ -30,6 +29,7 @@ export class SignUpPage {
         public toastHelper: ToastHelper,
         public alertCtrl: AlertController
     ) {
+        super();
         this.signUpForm = this.formBuilder.group({
             name: ['', [Validators.required, Validators.minLength(3)]],
             email: ['', [Validators.required, Validators.minLength(3)]],
@@ -57,9 +57,8 @@ export class SignUpPage {
             this.navCtrl.pop();
 
         } catch (error) {
-            console.log(error);
             let alert = this.alertCtrl.create({
-                subTitle: error.message,
+                subTitle: error,
                 buttons: ['OK']
             });
             alert.present();
