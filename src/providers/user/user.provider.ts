@@ -12,8 +12,12 @@ export class UserProvider {
         private db: AngularFireDatabase
     ) { }
 
+    /**
+     * Cria o usuario com o UID recebido
+     * @param user 
+     */
     create(user: User) {
-        return this.db.database.ref(this.basePath).push(user);
+        return this.db.object(`/users/${user.uid}`).set(user);
     }
 
     getUsers(path): Observable<any[]> {
