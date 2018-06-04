@@ -27,6 +27,7 @@ export class MyApp {
                 if (user) {
                     // Usuario logado
                     this.rootPage = 'TabsPage';
+                    authProvider.setUserLogged(user);
                 } else {
                     this.rootPage = 'SignInPage';
                 }

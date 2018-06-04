@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs';
-import { User } from 'firebase/app';
 import { UserProvider } from '../../providers/user/user.provider';
 import { LoaderHelper } from '../../helpers/loader.helper';
+import { User } from '../../models/user.model';
+import { AuthProvider } from '../../providers/auth/auth.provider';
 
 @IonicPage()
 @Component({
@@ -11,15 +12,18 @@ import { LoaderHelper } from '../../helpers/loader.helper';
     templateUrl: 'user.html',
 })
 export class UserPage {
-    users: Observable<User[]>
+    users: Observable<User[]>;
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         public userProvider: UserProvider,
         public loaderHelper: LoaderHelper,
+        public authProvider: AuthProvider,
     ) {
-        this.users = this.userProvider.getUsers()
+        this.users = this.userProvider.getUsers().map((users) => {
+            return users.filter(user => user.uid != this.authProvider.getUserLogged().uid)
+        });
     }
 
     chatCreate(user: User) {

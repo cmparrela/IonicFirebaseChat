@@ -5,6 +5,7 @@ import { BaseProvider } from '../../core/base.provider';
 
 @Injectable()
 export class AuthProvider extends BaseProvider {
+    userLogged
 
     constructor(
         public fireAuth: AngularFireAuth
@@ -12,8 +13,12 @@ export class AuthProvider extends BaseProvider {
         super();
     }
 
-    get authenticated(): boolean {
-        return this.currentUser() ? true : false;
+    getUserLogged() {
+        return this.userLogged;
+    }
+
+    setUserLogged(user) {
+        this.userLogged = user;
     }
 
     createAuthUser(email, password): Promise<any> {
@@ -27,10 +32,4 @@ export class AuthProvider extends BaseProvider {
     logout() {
         this.fireAuth.auth.signOut().catch(this.handlePromiseError);
     }
-
-    currentUser() {
-        return this.fireAuth.auth.onAuthStateChanged;
-
-    }
-
 }

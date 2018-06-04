@@ -7,8 +7,6 @@ import { User } from '../../models/user.model';
 
 @Injectable()
 export class UserProvider extends BaseProvider {
-    private basePath = 'users';
-
     constructor(
         private db: AngularFireDatabase
     ) {
@@ -19,12 +17,19 @@ export class UserProvider extends BaseProvider {
      * Cria o usuario com o UID recebido
      * @param user 
      */
-    create(user: User, uid: string): Promise<any> {
-        return this.db.object(`/users/${uid}`).set(user).catch(this.handlePromiseError);
+    create(user: User): Promise<any> {
+        return this.db.object(`/users/${user.uid}`)
+            .set(user)
+            .catch(this.handlePromiseError);
     }
 
+    /**
+     * Retorna todos os usuarios cadastrados
+     */
     getUsers(): Observable<any[]> {
-        return this.db.list(this.basePath).valueChanges().catch(this.handleObservableError);
+        return this.db.list('users', ref => ref.orderByChild('name'))
+            .valueChanges()
+            .catch(this.handleObservableError);
     }
 
 }
