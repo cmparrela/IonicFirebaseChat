@@ -19,8 +19,8 @@ export class UserProvider extends BaseProvider {
      * Cria o usuario com o UID recebido
      * @param user 
      */
-    create(user: User): Promise<any> {
-        return this.db.object(`/users/${user.uid}`).set(user).catch(this.handlePromiseError);
+    create(user: User, uid: string): Promise<any> {
+        return this.db.object(`/users/${uid}`).set(user).catch(this.handlePromiseError);
     }
 
     getUsers(): Observable<any[]> {

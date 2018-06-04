@@ -7,7 +7,7 @@ import { IonicPage, NavController } from 'ionic-angular';
     templateUrl: 'tabs.html'
 })
 export class TabsPage {
-    chatRoot = 'ChatPage'
+    chatRoot = 'ChatListPage'
     userRoot = 'UserPage'
     menuRoot = 'MenuPage'
 

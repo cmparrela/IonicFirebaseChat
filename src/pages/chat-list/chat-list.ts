@@ -3,18 +3,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-    selector: 'page-chat',
-    templateUrl: 'chat.html',
+    selector: 'page-chat-list',
+    templateUrl: 'chat-list.html',
 })
-export class ChatPage {
-    messages: Array<String> = [];
+export class ChatListPage {
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams
     ) { }
 
-    sendMessage(newMessage: string): void {
-        this.messages.push(newMessage);
-    }
 }

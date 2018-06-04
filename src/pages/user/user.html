@@ -1,9 +1,13 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>user</ion-title>
+        <ion-title>Users</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+    <ion-list>
+        <button ion-item *ngFor="let user of users | async" (click)="chatCreate(user)">
+            {{ user.name }}
+        </button>
+    </ion-list>
 </ion-content>

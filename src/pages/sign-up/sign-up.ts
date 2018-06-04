@@ -51,8 +51,7 @@ export class SignUpPage extends BasePage {
 
                 // Cadastra o usuario no banco de dados
                 delete formUser.password;
-                formUser.uid = authState.uid;
-                await this.userProvider.create(formUser);
+                await this.userProvider.create(formUser, authState.uid);
             }
             this.toastHelper.show('User created successfully')
 

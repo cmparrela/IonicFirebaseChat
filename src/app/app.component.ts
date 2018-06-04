@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Platform } from 'ionic-angular';
 
 import { AuthProvider } from '../providers/auth/auth.provider';
-import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
     templateUrl: 'app.html'
