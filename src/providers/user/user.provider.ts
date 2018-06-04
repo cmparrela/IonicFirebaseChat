@@ -7,7 +7,7 @@ import { User } from '../../models/user.model';
 
 @Injectable()
 export class UserProvider extends BaseProvider {
-    private basePath = '/users';
+    private basePath = 'users';
 
     constructor(
         private db: AngularFireDatabase
@@ -23,8 +23,8 @@ export class UserProvider extends BaseProvider {
         return this.db.object(`/users/${user.uid}`).set(user).catch(this.handlePromiseError);
     }
 
-    getUsers(path): Observable<any[]> {
-        return this.db.list(path).valueChanges().catch(this.handleObservableError);
+    getUsers(): Observable<any[]> {
+        return this.db.list(this.basePath).valueChanges().catch(this.handleObservableError);
     }
 
 }

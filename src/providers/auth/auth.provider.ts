@@ -12,12 +12,25 @@ export class AuthProvider extends BaseProvider {
         super();
     }
 
+    get authenticated(): boolean {
+        return this.currentUser() ? true : false;
+    }
+
     createAuthUser(email, password): Promise<any> {
         return this.fireAuth.auth.createUserWithEmailAndPassword(email, password).catch(this.handlePromiseError);
     }
 
     signIn(email: string, password: string) {
         return this.fireAuth.auth.signInWithEmailAndPassword(email, password).catch(this.handlePromiseError);
+    }
+
+    logout() {
+        this.fireAuth.auth.signOut().catch(this.handlePromiseError);
+    }
+
+    currentUser() {
+        return this.fireAuth.auth.onAuthStateChanged;
+
     }
 
 }

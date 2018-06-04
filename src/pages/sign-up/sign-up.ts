@@ -55,7 +55,6 @@ export class SignUpPage extends BasePage {
                 await this.userProvider.create(formUser);
             }
             this.toastHelper.show('User created successfully')
-            this.navCtrl.pop();
 
         } catch (error) {
             this.alertHelper.show(error);

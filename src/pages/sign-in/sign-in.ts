@@ -37,8 +37,8 @@ export class SignInPage extends BasePage {
             this.submitAttempt = true;
 
             if (this.signInForm.valid) {
-              await this.authProvider.signIn(this.signInForm.value.email, this.signInForm.value.password)
-                
+                await this.authProvider.signIn(this.signInForm.value.email, this.signInForm.value.password)
+                console.log('logado com sucesso');
             }
         } catch (error) {
             this.alertHelper.show(error);
@@ -48,9 +48,5 @@ export class SignInPage extends BasePage {
 
     goToSignUp() {
         this.navCtrl.push('SignUpPage');
-    }
-
-    goToResetPassword() {
-        // this.navCtrl.push(ResetPasswordPage);
     }
 }

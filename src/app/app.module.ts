@@ -11,7 +11,6 @@ import { environment } from '../environments/environment';
 import { AlertHelper } from '../helpers/alert.helper';
 import { LoaderHelper } from '../helpers/loader.helper';
 import { ToastHelper } from '../helpers/toast.helper';
-import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth.provider';
 import { UserProvider } from '../providers/user/user.provider';
 import { MyApp } from './app.component';
@@ -19,7 +18,6 @@ import { MyApp } from './app.component';
 @NgModule({
     declarations: [
         MyApp,
-        HomePage
     ],
     imports: [
         BrowserModule,
@@ -30,7 +28,6 @@ import { MyApp } from './app.component';
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage
     ],
     providers: [
         StatusBar,
