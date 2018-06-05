@@ -12,6 +12,7 @@ import { AlertHelper } from '../helpers/alert.helper';
 import { LoaderHelper } from '../helpers/loader.helper';
 import { ToastHelper } from '../helpers/toast.helper';
 import { AuthProvider } from '../providers/auth/auth.provider';
+import { ChatProvider } from '../providers/chat/chat.provider';
 import { UserProvider } from '../providers/user/user.provider';
 import { MyApp } from './app.component';
 
@@ -41,6 +42,7 @@ import { MyApp } from './app.component';
         LoaderHelper,
         ToastHelper,
         AlertHelper,
+        ChatProvider,
     ]
 })
 export class AppModule { }

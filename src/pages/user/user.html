@@ -6,7 +6,7 @@
 
 <ion-content padding>
     <ion-list>
-        <button ion-item *ngFor="let user of users | async" (click)="chatCreate(user)">
+        <button ion-item *ngFor="let user of users | async" (click)="openChat(user)">
             {{ user.name }}
         </button>
     </ion-list>

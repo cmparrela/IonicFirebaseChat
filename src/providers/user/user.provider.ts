@@ -32,4 +32,14 @@ export class UserProvider extends BaseProvider {
             .catch(this.handleObservableError);
     }
 
+    /**
+     * Retorna o usuário pelo ID
+     */
+    getUserById(uid) {
+        return this.db.list('users', ref => ref.orderByChild('uid').equalTo(uid))
+            .valueChanges()
+            .first()
+            .catch(this.handleObservableError);
+    }
+
 }

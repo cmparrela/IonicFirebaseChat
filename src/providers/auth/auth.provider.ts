@@ -13,7 +13,7 @@ export class AuthProvider extends BaseProvider {
         super();
     }
 
-    getUserLogged() {
+    get getUserLogged() {
         return this.userLogged;
     }
 
