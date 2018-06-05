@@ -29,7 +29,7 @@ export class UserPage {
         public chatProvider: ChatProvider,
         public alertHelper: AlertHelper,
     ) {
-        this.users = this.userProvider.getUsers().map((users) => {
+        this.users = this.userProvider.getAll().map((users) => {
             return users.filter(user => user.uid != this.authProvider.getUserLogged.uid)
         });
     }

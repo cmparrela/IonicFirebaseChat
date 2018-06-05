@@ -26,7 +26,7 @@ export class UserProvider extends BaseProvider {
     /**
      * Retorna todos os usuarios cadastrados
      */
-    getUsers(): Observable<any[]> {
+    getAll(): Observable<any[]> {
         return this.db.list('users', ref => ref.orderByChild('name'))
             .valueChanges()
             .catch(this.handleObservableError);

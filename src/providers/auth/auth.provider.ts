@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { BaseProvider } from '../../core/base.provider';
+import { User } from '../../models/user.model';
 
 @Injectable()
 export class AuthProvider extends BaseProvider {
@@ -13,7 +14,7 @@ export class AuthProvider extends BaseProvider {
         super();
     }
 
-    get getUserLogged() {
+    get getUserLogged(): User {
         return this.userLogged;
     }
 

@@ -31,14 +31,13 @@ export class SignInPage extends BasePage {
         })
     }
 
-    async login() {
+    login() {
         this.loaderHelper.show();
         try {
             this.submitAttempt = true;
 
             if (this.signInForm.valid) {
-                await this.authProvider.signIn(this.signInForm.value.email, this.signInForm.value.password)
-                console.log('logado com sucesso');
+                this.authProvider.signIn(this.signInForm.value.email, this.signInForm.value.password)
             }
         } catch (error) {
             this.alertHelper.show(error);
